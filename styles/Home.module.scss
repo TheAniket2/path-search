@@ -1,0 +1,259 @@
+
+.div{
+    color:white;
+}
+$width : 500px;
+$height : 500px;
+$box-area : calc(500px/10);
+.gridP{
+    display: flex;
+    flex-direction: row;
+    margin:20px;
+    padding-bottom:30px;
+    // align-items: flex-start;
+    // justify-content: flex-start;
+    .boxsize{
+        font-family: monospace;
+        width:$box-area;
+        height:$box-area;
+        // font-size:40px;
+        text-align: center;
+        border: 0.5px rgb(5, 5, 5) solid;
+        // display:flex;
+        // flex-direction: row;
+        // justify-content: center;
+        // align-items: center;
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div{
+            // font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    }
+    .grid{
+        cursor:pointer !important;
+        // margin:auto;
+        margin:10px;
+        width:$width;
+        height:$height;
+        display:flex;
+        flex-direction:row;
+        flex-wrap:wrap;
+        .box{
+            @extend .boxsize;
+            // transition: ;
+            background:white;
+            user-select: none;
+        }
+        .start, .end{
+            @extend .boxsize;
+            // background:pink;
+            background: rgb(255, 255, 255);
+            user-select: none;
+            color:white;
+            font-weight: bold;
+            // text-shadow: -1px -1px green 2px;
+            div{
+                animation: anibox2 500ms;
+                animation-direction: alternate;
+                // border-radius: 30px;
+                font-size: 40px;
+                // vertical-align: bottom;
+                border-radius: 50%;
+                background: black;
+                border:1px black solid;
+                width:100%;
+                height: 100%;
+                text-decoration: underline rgb(8, 186, 209);
+            }
+        }
+        .mark{
+            user-select: none;
+            background-color: aqua !important;
+        }
+        .path{
+            @extend .boxsize;
+            background-color: rgb(0, 129, 250) !important;
+            animation: anibox2 500ms !important;
+            border: 1px white solid;
+            animation-direction: alternate;
+        }
+        .wall{
+            @extend .boxsize;
+            background-color: black;
+            // animation: anibox 100ms;
+            // animation-direction: alternate;
+        }
+        .path, .visited, .visiting{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            div{
+                // padding-top: 13px;
+                color:white;
+                // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+        }
+        @keyframes anibox {
+            from{
+                transform: scale(0.5);
+                font-size:20px;
+                background-color: aqua;
+            }
+            to{
+                transform: scale(1);
+                font-size:40px; 
+                background-color: rgb(255, 0, 200);
+            }
+        }
+        @keyframes anibox2 {
+            from{
+                transform: scale(0.5);
+                background-color: rgb(255, 157, 0);
+            }
+            to{
+                transform: scale(1);
+                background-color: rgb(255, 187, 0);
+            }
+        }
+        .visiting{
+            @extend .boxsize;
+            transition: all 300ms;
+         
+            background-color: rgb(212, 93, 212);
+            animation: anibox 500ms;
+            animation-direction: alternate;
+        }
+        .visited{
+            @extend .boxsize;
+            background-color: rgb(153, 0, 255);
+        }
+    }
+    .algorithm{
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 100%;
+        // justify-content: center;
+        // align-items: center;
+        button{
+            // display: block;
+            width:270px;
+            margin-left:10px;
+            // margin:auto;
+            margin-top:10px;
+            // margin-bottom:10px;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 25px;
+            background-color: black;
+            // border-radius: 20px;
+            border:2px black solid;
+            color:white;
+        }
+        div{
+            font-size: 30px;
+            // margin-left:80px;
+            text-align: center;
+            text-decoration: underline;
+        }
+        button:hover{
+            background: rgb(209, 65, 235);
+        }
+        .clearBoard{
+            background:rgb(51, 203, 223);
+        }
+    }
+}
+.navbar{
+    // padding-top:10px;
+    background-color: black;
+    color:white;
+    font-size:20px;
+    padding-left:20px;
+    font-weight: bold;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    div{
+        text-align: center;
+        text-decoration: underline rgb(8, 186, 209);
+        a{
+        text-decoration: underline rgb(8, 186, 209);
+
+        }
+        padding:10px;
+    }
+}
+.navbar2{
+    @extend .navbar;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position:fixed;
+    bottom: 0px;
+    left:0px;
+    right:0px;
+    div span{
+        // text-decoration: none !important;
+        display:none;
+        // font-size: 10px;
+    }
+}
+.notice{
+    display:flex;
+    flex-wrap: wrap;
+    margin:10px;
+    width:250px;
+    padding:10px;
+    background-color: black;
+    color:white;
+    font-size: 20px;
+    transition: all 200ms;
+    font-family: monospace;
+    border:1px solid black;
+    border-radius: 10px;
+}
+.icon{
+    background: black;
+}
+@media(max-width:500px){
+    $width:750px;
+    $box-area:calc(750px/10);
+    .gridP{
+        flex-direction: column;
+        .algorithm{
+            align-items: center;
+        }
+        .notice{
+            align-self: center;
+        }
+        .grid{
+            width: $width;
+            height: $width;
+            flex-wrap: wrap;
+            align-items: center;
+            .boxsize{
+                width: $box-area !important;
+                height: $box-area !important;
+            }
+            .start >div,.end >div{
+                padding-top: 11px;
+            }
+            align-items: center;
+            justify-content: center;
+        }
+
+        
+    }
+    .navbar2{
+        div span{
+            text-decoration: none !important;
+            font-size: 15px;
+            display:inline;
+        }
+    }
+}
